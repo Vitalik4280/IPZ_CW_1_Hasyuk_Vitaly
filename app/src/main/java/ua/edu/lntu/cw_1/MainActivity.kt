@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -58,7 +59,10 @@ fun Page(modifier: Modifier = Modifier) {
             "Control work 1"
         )
         Spacer(modifier = Modifier.height(15.dp))
-        Column() {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
             Info(
                 icon = R.drawable.baseline_local_phone_24,
                 info = "+11111111111"
@@ -99,14 +103,15 @@ fun Profile(
             painter = painterResource(id = image),
             contentDescription = null,
             modifier = Modifier
-                .fillMaxSize()
                 .padding(20.dp)
         )
         Text(
             text = "$name",
+            style = MaterialTheme.typography.bodyLarge
         )
         Text(
             text = "$label",
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }
@@ -122,8 +127,10 @@ fun Info(
             painter = painterResource(id = icon),
             contentDescription = null,
         )
+        Spacer(modifier = Modifier.width(10.dp))
         Text(
-            text = "$info"
+            text = "$info",
+            style = MaterialTheme.typography.headlineSmall
         )
     }
 }
